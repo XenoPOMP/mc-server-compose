@@ -5,7 +5,7 @@ WORKDIR /loader
 RUN apt update && apt install wget -y
 RUN wget https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar
 
-FROM eclipse-temurin:21-jdk AS jdk-base
+FROM eclipse-temurin:25-jdk AS jdk-base
 WORKDIR /app
 
 FROM jdk-base AS builder
