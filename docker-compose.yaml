@@ -5,6 +5,7 @@ services:
     build:
       context: .
       args:
+        # Supported Minecraft versions are listed here: https://hub.spigotmc.org/versions/
         - MC_VERSION=26.1
         - JDK_VERSION=25
         - EULA=true

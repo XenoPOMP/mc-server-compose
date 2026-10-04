@@ -35,7 +35,7 @@ services:
         - JAVA_ARGS=-Xms2G -Xmx2G -XX:+UseG1GC       # JVM flags for the running server
 ```
 
-- **MC_VERSION** — version passed to `BuildTools.jar --rev`.
+- **MC_VERSION** — version passed to `BuildTools.jar --rev`. All supported versions are listed here: https://hub.spigotmc.org/versions/.
 - **JDK_VERSION** — tag suffix for the `eclipse-temurin` base image (e.g. `21`, `25`). Must be a JDK version compatible with the Spigot version you're building.
 - **EULA** — you must set this to `true`, confirming agreement with the [Minecraft EULA](https://www.minecraft.net/en-us/eula). The build fails if it's anything else.
 - **JAVA_ARGS** — JVM flags such as heap size. Adjust `-Xms`/`-Xmx` to match the RAM available on your server.
