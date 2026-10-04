@@ -26,6 +26,13 @@ COPY --from=builder /app/runner/server.jar .
 RUN mkdir data
 
 ARG JAVA_ARGS
-RUN echo "#!/bin/bash\njava $JAVA_ARGS -jar server.jar --plugins "$(pwd)/data/plugins" --universe "$(pwd)/data/worlds" --world-container "$(pwd)/data/worlds" nogui" | tee "start.sh" ; chmod +x ./start.sh
+RUN echo "#!/bin/bash\njava $JAVA_ARGS -jar server.jar --plugins \"$(pwd)/data/plugins\" --universe \"$(pwd)/data/worlds\" --world-container \"$(pwd)/data/worlds\" nogui" | tee "start.sh" ; chmod +x ./start.sh
+
+ARG EULA
+RUN if [ "$EULA" != "true" ]; then \
+        echo "You must agree with EULA policy to run this server!" ; \
+        exit 1 ; \
+    fi
+RUN echo "eula=$EULA" > eula.txt
 
 CMD ["./start.sh"]

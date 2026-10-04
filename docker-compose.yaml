@@ -6,6 +6,7 @@ services:
       context: .
       args:
         - MC_VERSION=1.20.4
+        - EULA=true
         - JAVA_ARGS=-Xms2G -Xmx2G -XX:+UseG1GC
     container_name: mc-server
     restart: unless-stopped
