@@ -71,6 +71,9 @@ sudo ufw allow 25565/tcp
 
 If you enable RCON or query in `data/server.properties`, open the corresponding ports too (`25575/tcp` for RCON by default) and map them in `docker-compose.yaml`.
 
+### Important note about DNS
+If you\`re planning to buy a domain name and point it to server, take a note that when user tries to connect to server in game by domain, game automatically adds default tcp port to it, so `xenoplace.com` converts to `xenoplace.com:25565`, so machine\`s port 25565 must be mapped to 25565/tcp of container, as in default variant of `docker-compose` file.
+
 ## Data and persistence
 
 Everything that needs to survive a rebuild or container recreation lives under `./data` on the host, bind-mounted to `/app/runner/data` in the container:
