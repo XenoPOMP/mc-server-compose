@@ -10,5 +10,7 @@ services:
         - JAVA_ARGS=-Xms2G -Xmx2G -XX:+UseG1GC
     container_name: mc-server
     restart: unless-stopped
+    ports:
+      - 25565:25565/tcp # Main port, access the game server
     volumes:
       - ./data:/app/runner/data
