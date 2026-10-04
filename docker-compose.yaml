@@ -6,6 +6,7 @@ services:
       context: .
       args:
         - MC_VERSION=26.1
+        - JDK_VERSION=25
         - EULA=true
         - JAVA_ARGS=-Xms2G -Xmx2G -XX:+UseG1GC
     container_name: mc-server

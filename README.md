@@ -30,11 +30,13 @@ services:
       context: .
       args:
         - MC_VERSION=1.20.4                        # Minecraft/Spigot version to build
+        - JDK_VERSION=25                            # eclipse-temurin JDK tag used for all stages
         - EULA=true                                 # must be "true" to build the image
         - JAVA_ARGS=-Xms2G -Xmx2G -XX:+UseG1GC       # JVM flags for the running server
 ```
 
 - **MC_VERSION** — version passed to `BuildTools.jar --rev`.
+- **JDK_VERSION** — tag suffix for the `eclipse-temurin` base image (e.g. `21`, `25`). Must be a JDK version compatible with the Spigot version you're building.
 - **EULA** — you must set this to `true`, confirming agreement with the [Minecraft EULA](https://www.minecraft.net/en-us/eula). The build fails if it's anything else.
 - **JAVA_ARGS** — JVM flags such as heap size. Adjust `-Xms`/`-Xmx` to match the RAM available on your server.
 
